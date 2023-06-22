@@ -1,0 +1,34 @@
+{
+  "name": "@mimamch/cmd",
+  "version": "1.0.0",
+  "description": "A command processor library for handling interactive commands",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"No tests specified\"",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimamch/cmd.git"
+  },
+  "keywords": [
+    "command processor",
+    "command handler",
+    "command execution",
+    "command parsing",
+    "command-based interaction",
+    "command-driven application",
+    "CLI (Command-Line Interface) framework",
+    "chatbot command handling",
+    "interactive bot commands",
+    "command dispatching",
+    "command event handling"
+  ],
+  "author": "@mimamch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimamch/cmd/issues"
+  },
+  "homepage": "https://github.com/mimamch/cmd#readme"
+}
