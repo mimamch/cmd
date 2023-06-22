@@ -1,4 +1,4 @@
-# @mimamch/cmd - Powerful and Lightweigt Command Processing Library for Interactive Applications
+# @mimamch/cmd - Powerful and Lightweight Command Processing Library for Interactive Applications
 
 `@mimamch/cmd` is a library for processing and handling commands in text-based applications. This library provides an efficient way to manage and execute commands provided by users.
 
