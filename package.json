@@ -1,6 +1,6 @@
 {
   "name": "@mimamch/cmd",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A command processor library for handling interactive commands",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/mimamch/cmd#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   }
 }
