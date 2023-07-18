@@ -6,6 +6,7 @@ declare class CommandProcessor<T extends Commands> {
     constructor(events: T);
     /**
      * Parses and executes a command with the given arguments.
+     * @deprecated use parse method instead
      *
      * @template E - The type of command to parse and execute.
      * @param {E} command - The command to parse and execute.
@@ -13,6 +14,16 @@ declare class CommandProcessor<T extends Commands> {
      * @returns {ReturnType<T[E]>} - The result of executing the command.
      */
     parseCommand<E extends keyof T>(command: E, ...args: Parameters<T[E]>): ReturnType<T[E]>;
+    /**
+     * Parses and executes a command with the given arguments.
+     *
+     * @template E - The type of command to parse and execute.
+     * @param {E} command - The command to parse and execute.
+     * @param {...Parameters<T[E]>} args - The arguments to pass to the command handler.
+     * @returns {ReturnType<T[E]>} - The result of executing the command.
+     */
+    parse<E extends keyof T>(command: E, ...args: Parameters<T[E]>): ReturnType<T[E]>;
+    parseOrThrow<E extends keyof T>(command: E, ...args: Parameters<T[E]>): ReturnType<T[E]>;
 }
 export default CommandProcessor;
 export { CommandProcessor, Commands };
