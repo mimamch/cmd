@@ -45,7 +45,7 @@ const commands = {
 const commandProcessor = new CommandProcessor(commands);
 
 // Execute the "/sayhello" command with the argument "mimamch"
-const sayHelloResult = commandProcessor.parseCommand("/sayhello", "mimamch");
+const sayHelloResult = commandProcessor.parse("/sayhello", "mimamch");
 console.log(sayHelloResult);
 ```
 
