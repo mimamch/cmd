@@ -1,6 +1,6 @@
 {
   "name": "@mimamch/cmd",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A command processor library for handling interactive commands",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

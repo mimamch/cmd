@@ -1,5 +1,5 @@
-type Commands<T = any> = {
-  [key: string]: (args: T) => unknown;
+type Commands = {
+  [key: string]: (...args: any[]) => unknown;
 };
 
 class CommandProcessor<T extends Commands> {
@@ -19,9 +19,9 @@ class CommandProcessor<T extends Commands> {
    */
   parseCommand<E extends keyof T>(
     command: E,
-    ...args: Parameters<T[E]>
+    args: Parameters<T[E]>
   ): ReturnType<T[E]> {
-    return this.events[command]?.(args) as ReturnType<T[E]>;
+    return this.events[command]?.(...args) as ReturnType<T[E]>;
   }
 
   /**
@@ -31,22 +31,33 @@ class CommandProcessor<T extends Commands> {
    * @param {E} command - The command to parse and execute.
    * @param {...Parameters<T[E]>} args - The arguments to pass to the command handler.
    * @returns {ReturnType<T[E]>} - The result of executing the command.
+   * @returns {null} - When the command is not registered.
    */
   parse<E extends keyof T>(
     command: E,
-    ...args: Parameters<T[E]>
+    args: Parameters<T[E]>
   ): ReturnType<T[E]> {
-    return this.events[command]?.(args) as ReturnType<T[E]>;
+    return this.events[command]?.(...args) as ReturnType<T[E]>;
   }
 
+  /**
+   * Parses and executes a command with the given arguments.
+   *
+   * @template E - The type of command to parse and execute.
+   * @param {E} command - The command to parse and execute.
+   * @param {...Parameters<T[E]>} args - The arguments to pass to the command handler.
+   * @returns {ReturnType<T[E]>} - The result of executing the command.
+   *
+   * @throws {Error} - If the command is not registered.
+   */
   parseOrThrow<E extends keyof T>(
     command: E,
-    ...args: Parameters<T[E]>
+    args: Parameters<T[E]>
   ): ReturnType<T[E]> {
     if (!(command in this.events)) {
       throw new Error(`command ${command.toString()} is not registered`);
     }
-    return this.events[command](args) as ReturnType<T[E]>;
+    return this.events[command](...args) as ReturnType<T[E]>;
   }
 }
 
